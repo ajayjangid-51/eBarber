@@ -1,0 +1,9 @@
+.loader{
+    display: flex;
+    height: 91vh;
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid black;
+    align-items: center;
+    justify-content: center;
+}
