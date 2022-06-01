@@ -1,0 +1,16 @@
+.profile > .up > .upImage{
+    display: flex;
+    justify-content: space-between;
+
+}
+.profile > .down > ul > li > span{
+    display: flex;
+    align-items: center;
+}
+.profile > .down > ul > li{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}

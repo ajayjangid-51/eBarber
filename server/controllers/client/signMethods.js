@@ -1,38 +1,61 @@
-const User = require("../../models/client/user");
+const userCollection = require("../../models/client/user");
 
-const signIn = (req, res) => {
-	const { signInEmail, signInPassword } = req.body;
-	if (!signInEmail || !signInPassword) {
-		res.send("please fill the right details");
+const signIn = async (req, res) => {
+	console.log(`the signin Details are := ${req.body}`);
+	try {
+		userCollection.find({ email: req.body.email }, async (err, foundUser) => {
+			if (foundUser.length > 0) {
+				if (foundUser[0].password == req.body.password) {
+					const { password, ...otherDetails } = foundUser[0]._doc;
+					res.status(200).json(otherDetails);
+				} else {
+					res.status(400).send({ message: "incorred password" });
+				}
+			} else {
+				res.status(400).send({ message: "sorry you are not registered" });
+			}
+		});
+	} catch (err) {
+		console.log(`error occured at sigin backend`);
 	}
-
-	User.users.find({ Email: req.body.signInEmail });
 };
 const signUp = (req, res) => {
-	// console.log("signUp called");
+	console.log("signUp called");
+
 	// console.log(req.body);
+
 	// res.status(300).send("signUP called");
 	// console.log(req.body);
-	User.users.find({ Email: req.body.signUpEmail }, async (err, foundUser) => {
-		if (foundUser.length > 0) {
-			// console.log(foundUser);
-			res.send({ messsage: "sorry email-exits" });
-		} else {
-			let { signUpName, signUpEmail, signUpPassword } = req.body;
-			let newUser = new User.users({
-				name: signUpName,
-				Email: signUpEmail,
-				password: signUpPassword,
-			});
-			await newUser.save();
-			// newUser.
+	userCollection.find(
+		{ email: req.body.email },
+		// mtlb after finding-process yeh 2nd-paramter-wala-function-call ya mtlb callback hojayega.
+		async (err, foundUser) => {
+			if (foundUser.length > 0) {
+				// console.log(foundUser);
+				res.send({ messsage: "sorry email already registered" });
+			} else {
+				const { userName, email, password } = req.body;
+				try {
+					const newUser = new userCollection({
+						userName: userName,
+						email: email,
+						password: password,
+					});
+					const newUserSaved = await newUser.save();
+					// newUser.
+					console.log("hello good 😀");
+					res.status(200).json(newUserSaved);
 
-			res.send({
-				message: "registered successufully",
-				data: "okay login now",
-				yourUniqueId: newUser.id,
-			});
+					// res.send({
+					// 	message: "registered successufully",
+					// 	data: "okay login now",
+					// 	yourUniqueId: newUser.id,
+					// });
+				} catch (err) {
+					console.log(`some error occured during sigup... at backend.${err}`);
+				}
+			}
 		}
-	});
+	);
 };
 module.exports = { signIn, signUp };
