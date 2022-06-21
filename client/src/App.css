@@ -1,4 +1,19 @@
-  .app{
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+.artistList_div::-webkit-scrollbar{
+  display: none;
+
+}
+.css-1gsv261{
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 100;
+}
+/* body{
+  font-family: 'League Gothic', sans-serif;
+} */
+  /* .app{
       border: 2px solid red;
       box-sizing: border-box;
       height: 100vh;
@@ -8,7 +23,6 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
-      /* position: absolute; */
   }
 
   .appMainView{
@@ -31,4 +45,4 @@
   .appNavBarIcons{
     color: #a3a3a3;
     font-size: 38px !important;
-  }
+  } */

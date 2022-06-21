@@ -1,0 +1,9 @@
+.messenger .top{
+    border: 1px solid;
+    height: 14vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    padding-top: 40px;
+}
