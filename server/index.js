@@ -49,3 +49,7 @@ const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
 	console.log("server started and live on portno:", { PORT, Myip });
 });
+
+// IN git -commands:-
+// "[]" square-brackets mtlb these are "flags" "optionals"
+// "<>" angle-brackets mtlb these are "variables" and apnko uss variable ki value put krni hai.

@@ -99,7 +99,7 @@ import "./App.css";
 // import Shop from "./pages/shop/Shop";
 // import WslideShow from "./pages/shop/WslideShow";
 // import MenuPopupState from "./components/search/ServiceOptionMenu";
-import BasicTabs from "./components/search/Tab2";
+// import BasicTabs from "./components/search/Tab2";
 
 function App() {
 	const messageDetail = {
@@ -140,7 +140,8 @@ function App() {
 			{/* <Shop data={messageDetail} /> */}
 			{/* <WslideShow /> */}
 			{/* <MenuPopupState /> */}
-			<BasicTabs data={messageDetail} />
+			{/* <BasicTabs data={messageDetail} /> */}
+			hi
 		</div>
 	);
 }

@@ -1,4 +1,4 @@
-import {
+/* import {
 	DislikeFilled,
 	DislikeOutlined,
 	LikeFilled,
@@ -65,3 +65,4 @@ const Commentxx = () => {
 };
 
 export default commentxx;
+ */
