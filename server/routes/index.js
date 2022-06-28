@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const adminRouter = require("./adminRoutes");
-const clientRotuer = require("./clientRoutes");
+const adminRouter = require("./admin");
+const clientRotuer = require("./client");
 
 const fn = (req, res) => {
 	console.log("fn is called");
@@ -10,12 +10,6 @@ const fn = (req, res) => {
 
 router.use("/admin", adminRouter);
 router.use("/client", clientRotuer);
-router.get("/hl", fn); // here fn is function-variable so toh function-parameter-passing meh apnkok yeh sirf variable-ka-naam likhna hota hai.
-const fn2 = (req, res) => {
-	console.log("fn2 is called");
-	console.log(req.body);
-	res.status(300).send("we got signin");
-};
-router.post("/signin", fn2);
+router.get("/hl", fn); // here fn is function-variable so toh function-parameter-passing(mtlb when passing "function" as a parameter) meh apnkok yeh sirf function-variable-ka-naam likhna hota hai.
 
 module.exports = router;
